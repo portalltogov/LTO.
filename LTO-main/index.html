@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="462405486_908798934502512_8484866175364300635_n.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTMS Online Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="top-line">
+        <img src="Land_Transportation_Office.svg.png" alt="Logo" class="img">
+        <span class="title">LTMS PORTAL</span>
+    </div>
+    <div class="blue-box">
+        <img src="Land_Transportation_Office.svg.png" alt="Land Transportation Office Logo" class="logo">
+        <div class="welcome-text">
+            <span class="welcome">WELCOME, </span>
+            <span class="name">JOHN AARON</span>
+        </div>
+
+        <div class="image-row">
+            <a href="#" id="image1"><img src="461141756_1198209394769053_6054787398448402050_n-removebg-preview.png" alt="Image 1"></a>
+            <a href="#"><img src="460355970_2234015213642455_1554184263125800670_n-removebg-preview.png" alt="Image 2"></a>
+            <a href="#"><img src="461822458_1558579934865056_6709385378199199722_n-removebg-preview.png" alt="Image 3"></a>
+            <a href="#"><img src="461196059_910294057821663_8729452214421821586_n-removebg-preview.png" alt="Image 4"></a>
+            <a href="#"><img src="461246725_3855986701324698_8315286990966750149_n__1_-removebg-preview.png" alt="Image 5"></a>
+            <a href="#"><img src="461196058_568570152258793_5926156339662151134_n-removebg-preview.png" alt="Image 6"></a>
+            <a href="#"><img src="460333050_2410285845969191_637621378269835787_n-removebg-preview.png" alt="Image 7"></a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="status">
+                <img src="462554663_550570557337701_8156880006090252203_n-removebg-preview.png" alt="Logo">
+                <div class="status-text">
+                    <span class="digital-id">Digital ID is </span>
+                    <span class="active">Active</span>
+                </div>
+            </div>
+            <div class="modal-images">
+                <img src="486225254_1194193915495596_7791888514070533168_n.jpg" alt="Front Image" id="frontImage" class="active">
+                <img src="487757460_1005530378371832_6993284330601537222_n.jpg" alt="Back Image" id="backImage">
+            </div>
+            <div class="button-container">
+                <button class="button close-button">Close</button>
+                <div style="display: flex; gap: 10px;">
+                    <button class="button" id="backButton">←</button>
+                    <button class="button">QR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get modal and buttons
+        const modal = document.getElementById("myModal");
+        const image1 = document.getElementById("image1");
+        const closeButton = document.querySelector(".close-button");
+        const backButton = document.getElementById("backButton");
+        const frontImage = document.getElementById("frontImage");
+        const backImage = document.getElementById("backImage");
+
+        // Show modal when image is clicked
+        image1.addEventListener("click", function(event) {
+            event.preventDefault();
+            modal.style.display = "flex";
+        });
+
+        // Close modal
+        closeButton.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        // Close modal when clicking outside content
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Flip image with arrow toggle
+        backButton.addEventListener("click", function() {
+            if (frontImage.classList.contains("active")) {
+                frontImage.classList.add("fade-out");
+                setTimeout(function() {
+                    frontImage.classList.remove("active");
+                    backImage.classList.add("active");
+                    backButton.textContent = "→";
+                }, 500);
+            } else {
+                backImage.classList.add("fade-out");
+                setTimeout(function() {
+                    backImage.classList.remove("active");
+                    frontImage.classList.add("active");
+                    backButton.textContent = "←";
+                }, 500);
+            }
+        });
+    </script>
+
+</body>
+</html>
